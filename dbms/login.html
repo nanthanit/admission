@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <center>
+    <div class="container-fluid">
+        <fieldset style="color:black"><legend><br><br><u>LOGIN FORM</u></legend>
+     <form method="post" action="http://localhost:7000/login" style="width:40%";><br>
+         Enter your Name:<br>
+         <input type="text" class="form-control" id="n1" required><br>
+         Enter your Email:<br>
+         <input type="email" class="form-control" id="n2" required><br>
+         Enter your password:<br>
+         <input type="password" class="form-control" id="n3" required><br>
+
+        <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+         
+         <div class="container">
+            <div class="row cols-2">
+              <div class="col"><button type="button" class="btn btn-primary">Cancel</button><br></div>
+              <div class="col"><span class="psw"><a href="#">Forget password?</a></span></div>
+     
+            </div>
+          </div><br>
+          <a href="welcome.html"><button type="button" class="btn btn-dark" >Login</button></a><br><br>
+
+         
+
+     </form> 
+     </fieldset>  
+    </div>
+</center>
+</body>
+</html>

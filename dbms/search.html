@@ -1,0 +1,90 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    td,table,tr,th{
+        border: 2px solid black;
+    }
+
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<body>
+    <div class="container-fluid text-center mt-5">
+        <h3>Admission</h3>
+        <br><br>
+        <h5>Search by Name</h5>
+    </div>
+    <div class="container text-center" style="width: 40%;">
+    <form  method="post"> 
+        
+        <input type="text" class="form-control" name="t1" id="t1">
+        <br>
+        <input type="button" onclick="sub()" class="btn btn-success" value="Submit" id="t2">
+    </form>
+    <br><br>
+    <center><table class="table" style="width: 60%;color:white;background-color: black;" id="result"></table></center>
+        
+    </table>    
+
+</div>
+</body>
+
+<script>
+    function sub(){
+        var a = document.getElementById("t1").value
+        var b = document.getElementById("t2").value
+        console.log(a)
+        fetch("http://localhost:8000/search",{
+            method:"post",
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({
+                t1:a,
+                t2:b
+            })
+        })
+    .then(async(e)=>{
+        var e1=await e.json()
+        if(e1.length!=0)
+            {
+                console.log(e1)
+                var temp = "<tr><th>Name</th><th>FatherName</th><th>SSLC</th><th>HSC</th><th>Email</th><th>PhoneNumber</th><tr>"
+
+            for(let d of e1)
+            {
+                temp+="<tr><td>"+d.firstname+"</td><td>"+d.fathername+"</td><td>"+d.sslc+"</td><td>"+d.hsc+"</td><td>"+d.email+"</td><td>"+d.phonenumber+"</td></tr>"
+            }
+           document.getElementById("result").innerHTML=temp
+        }
+        else{
+            document.getElementById("result").innerHTML = "No record found";
+        }
+    })
+}
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
